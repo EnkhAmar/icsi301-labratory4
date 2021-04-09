@@ -9,13 +9,38 @@ import './States.css';
 class States extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      substring: '',
+    }
     console.log('window.cs142models.statesModel()', window.cs142models.statesModel());
   }
 
+  handleFilterChange = event => {
+    this.setState({ substring: event.target.value })
+  }
+
   render() {
+    let results = window.cs142models.statesModel().filter(
+      state => state.toLowerCase().includes(this.state.substring.toLowerCase())).map(
+      state => <li><div key={state}>{state}</div></li>
+    );
+
     return (
-      <div>
-        Replace this with the code for CS142 Project #4, Problem #2
+      <div className="cs-142-states-container">
+        <h1>Result of matching substring, "{`${this.state.substring}`}".</h1>
+        <label htmlFor="cs-142-states-filterInput">Search: </label>
+        <input id="cs-142-states-filterInput" type="text" 
+          value={this.state.substring} 
+          onChange={event => this.handleFilterChange(event)} />
+        <h2>Result:</h2>
+        <hr />
+        <div id="cs-142-states-list">
+          {results.length === 0 ? `No matching results` 
+                                : <ol>
+                                  {results}
+                                  </ol>
+          }
+        </div>
       </div>
     );
   }
