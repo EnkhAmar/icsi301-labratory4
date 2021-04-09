@@ -1,0 +1,19 @@
+#header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-bottom: 10px dotted #1964f0;
+}
+
+.header-my-logo {
+    width: 50px;
+    margin: 20px;
+}
+
+.header-phrase {
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 2em;
+    color: #3c6bec;
+    white-space: nowrap;
+}
