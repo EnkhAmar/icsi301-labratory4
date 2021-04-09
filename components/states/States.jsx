@@ -27,7 +27,7 @@ class States extends React.Component {
 
     return (
       <div className="cs-142-states-container">
-        <h1>Result of matching substring, "{`${this.state.substring}`}".</h1>
+        <h1>Matching substring of, "{`${this.state.substring}`}".</h1>
         <label htmlFor="cs-142-states-filterInput">Search: </label>
         <input id="cs-142-states-filterInput" type="text" 
           value={this.state.substring} 
